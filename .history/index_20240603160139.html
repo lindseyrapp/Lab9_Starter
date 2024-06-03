@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <title>Lab 9</title>
 
   <style>
@@ -48,14 +47,6 @@
       width: 122px;
     }
   </style>
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS && TrackJS.install({ 
-      token: "a82c9dc381b44656a865f00778e8c149"
-      // for more configuration options, see https://docs.trackjs.com
-    });
-  </script>
-                          
 </head>
 
 <body>
@@ -150,7 +141,7 @@
     });
 
     document.getElementById('table').addEventListener('click', () => {
-      console.table([{ name: "Susan", age: 33 }, { name: "Jake", age: 27 }]);
+      console.table([{ name: "John", age: 30 }, { name: "Jane", age: 25 }]);
     });
 
     document.getElementById('startTimer').addEventListener('click', () => {
@@ -166,34 +157,14 @@
     });
 
     document.getElementById('globalError').addEventListener('click', () => {
-      // Triggers global error
-      causeGlobalError();
+      // Trigger a global error
+      aintGonnaWork();
     });
 
-    // Catch unhandled errors
     window.onerror = function(message, source, lineno, colno, error) {
       console.log('Global error caught:', message);
       return true;
     };
-
-    // Creates custom error type
-    class CustomError extends Error {
-      constructor(message) {
-        super(message);
-        this.name = 'CustomError';
-      }
-    }
-
-    // Trigger and catch a custom error
-    function triggerError() {
-      try {
-        throw new CustomError('Custom error was triggered');
-      } catch (error) {
-        console.error('Caught error:', error.message);
-      } finally {
-        console.log('Error handling is complete');
-      }
-    }
   </script>
 </body>
 
